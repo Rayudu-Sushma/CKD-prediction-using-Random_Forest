@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chonic Kidney Disease Analysis</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <style>
+        .login {
+            top: 20%;
+        }
+        div{
+            color: black;
+        }
+        .button{
+            background-color: #0066cc;
+            color: white;
+            border-radius: 3px;
+        }
+        .select{
+            color:black;
+        }
+    </style>
+</head>
+
+<body style="background-image: linear-gradient(to bottom right,#ffe6e6,#cce6ff);">
+    <div class="login">
+        <h1 style="text-align: center;">CHRONIC KIDNEY DISEASE ANALYSIS</h1>
+        <div style="margin: 3em;">
+            The term “chronic kidney disease” means lasting damage to the kidneys that can get worse over
+            time. If the damage is very bad, your kidneys may stop working. This is called kidney failure,
+            or end-stage renal disease (ESRD). If your kidneys fail, you will need dialysis or a kidney
+            transplant in order to live.
+            Anyone can get CKD. Some people are more at risk than others.
+            Chronic kidney disease includes conditions that damage your kidneys and decrease their ability to keep you
+            healthy by doing the jobs listed. If kidney disease gets worse, wastes can build to high levels in your
+            blood and make you feel sick. You may develop complications like high blood pressure, anemia (low blood
+            count), weak bones, poor nutritional health and nerve damage. Also, kidney disease increases your risk of
+            having heart and blood vessel disease. These problems may happen slowly over a long period of time. Chronic
+            kidney disease may be caused by diabetes, high blood pressure and other disorders. Early detection and
+            treatment can often keep chronic kidney disease from getting worse. When kidney disease progresses, it may
+            eventually lead to kidney failure, which requires dialysis or a kidney transplant to maintain life.
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-sm-8">
+
+                    <br />
+                    <div>
+                        <h3>Cause: </h3>
+                        Some things that increase your risk for CKD include:
+                        <ul>
+                            <li>Diabetes</li>
+                            <li>High blood pressure (hypertension)</li>
+                            <li>Heart disease</li>
+                            <li>Having a family member with kidney disease</li>
+                            <li>Being over 60 years old</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Symptoms</h3>
+                        You may notice one or more of the following symptoms if your kidneys are beginning to fail:
+                        <ul>
+                            <li>Itching</li>
+                            <li>Muscle cramps</li>
+                            <li>Nausea and vomiting</li>
+                            <li>Not feeling hungry</li>
+                            <li>Swelling in your feet and ankles</li>
+                            <li>Too much urine (pee) or not enough urine</li>
+                            <li>Trouble catching your breath</li>
+                            <li>Trouble sleeping</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Prevention</h3>
+                        Diabetes and high blood pressure are the most common causes of CKD. If you have diabetes or high
+                        blood pressure, working with your doctor to keep your blood sugar and blood pressure under
+                        control is the best way to prevent kidney disease.
+
+                        Living a healthy lifestyle can help prevent diabetes, high blood pressure and kidney disease, or
+                        help keep them under control. Follow these tips to lower your risk for kidney disease and the
+                        problems that cause it:
+                        <ul>
+                            <li>Follow a low-salt, low-fat diet</li>
+                            <li>Exercise at least 30 minutes on most days of the week</li>
+                            <li>Have regular check-ups with your doctor</li>
+                            <li>Do not smoke or use tobacco</li>
+                            <li>Limit alcohol</li>
+                        </ul>
+
+                    </div>
+                    <div>
+                        <h3>Treatment</h3>
+                        Damage to your kidneys is usually permanent. Although the damage cannot be fixed, you can take
+                        steps to keep your kidneys as healthy as possible for as long as possible. You may even be able
+                        to stop the damage from getting worse.
+                        <ul>
+                            <li>Control your blood sugar if you have diabetes.</li>
+                            <li>Keep a healthy blood pressure.</li>
+                            <li>Follow a low-salt, low-fat diet. </li>
+                            <li>Exercise at least 30 minutes on most days of the week.</li>
+                            <li>Keep a healthy weight.</li>
+                            <li>Do not smoke or use tobacco.</li>
+                            <li>Limit alcohol.</li>
+                            <li>Talk to your doctor about medicines that can help protect your kidneys.</li>
+                        </ul>
+
+                        If you catch kidney disease early, you may be able to prevent kidney failure. If your kidneys
+                        fail, you will need dialysis or a kidney transplant to survive.
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+                    <h3>Predictor</h3>
+                   <h4>{{ prediction_text }}</h4> 
+                    <form action="{{ url_for('y_predict')}}" method="post">
+                        <select name="rbc" required="required" class="select">
+                            <option value="">red blood cells</option>
+                            <option value=1>normal</option>
+                            <option value=0>abnormal</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type="text" name="age" placeholder="Age" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="al" placeholder="Albumin" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="sc" placeholder="Serum Creatinine" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="sod" placeholder="Sodium" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="pot" placeholder="Potassium" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="hemo" placeholder="haemoglobin" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="pcv" placeholder="Packed Cell Volume" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="wc" placeholder="White Blood Cells Count" required="required" />
+                        <br>
+                        <br>
+                        <input type="text" name="rc" placeholder="Red Blood Cells Count" required="required" />
+                        <br>
+                        <br>
+                        <select name="htn" required="required" class="select">
+                            <option value="">hypertension</option>
+                            <option value=0>no</option>
+                            <option value=1>yes</option>
+                        </select>
+                        <br>
+                        <br>
+                        <select name="dm" required="required" class="select">
+                            <option value="">diabetes </option>
+                            <option value=0>no</option>
+                            <option value=1>yes</option>
+                        </select>
+                        <br>
+                        <br>
+                        <select name="ane" required="required" class="select">
+                            <option value="">anemia </option>
+                            <option value=0>no</option>
+                            <option value=1>yes</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button type="submit" class="button">Predict</button>
+
+                    </form>
+
+                    <br>
+                    <br>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
